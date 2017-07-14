@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="users">
+
+	<sql id="column">
+		id, pwd, name, sex, home, birthday, phone, c_num, c_pwd, c_cvc;
+	</sql>
+	<sql id="whereId">
+		WHERE 
+			id = ${id}
+	</sql>
+	
+	<insert id="userInsert" parameterType="usersDto">
+		INSERT INTO 
+			c_users 
+			(<include refid="column" />)
+		VALUSE
+			(#{id}, #{pwd}, #{name}, #{sex}, #{home}, #{birthday}, #{phone}, #{c_num}, #{c_pwd}, #{c_cvc});
+	</insert>
+	
+	<update id="userUpdate" parameterType="usersDto">
+		UPDATE 
+			c_users
+		SET
+			pwd = #{pwd}, 
+			name = #{name}, 
+			sex = #{sex}, 
+			home = #{home}, 
+			birthday = #{birthday}, 
+			phone = #{phone}, 
+			c_num = #{c_num}, 
+			c_pwd = #{c_pwd}, 
+			c_cvc = #{c_cvc}
+		<include refid="whereId" />
+	</update>
+	
+	<delete id="userDelete" parameterType="string">
+		DELETE FROM 
+			c_users
+		<include refid="whereId" />
+	</delete>
+	
+	<select id="userData" parameterType="string" resultType="usersDto">
+		SELECT 
+			<include refid="column" />
+		FROM
+			c_users
+		<include refid="whereId" />
+	</select>
+	
+	<select id="userList" resultType="usersDto">
+		SELECT
+			<include refid="column" />
+		FROM
+			c_users
+	</select>
+	
+	<select id="canUseId" parameterType="string" resultType="string">
+		SELECT
+			id
+		FROM
+			c_users
+		<include refid="whereId" />
+	</select>
+	
+</mapper>
