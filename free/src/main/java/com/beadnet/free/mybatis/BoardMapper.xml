@@ -4,7 +4,7 @@
 
 	<insert id="insert" parameterType="boardDto">
 		INSERT INTO FREE_LIST VALUES(
-			seq_free_list.NEXTVAL, seq_free_user.NEXTVAL, #{f_title}, #{f_content}, SYSDATE
+			seq_free_list.NEXTVAL ,#{seq_free_user}, #{f_title}, #{f_content}, SYSDATE
 		)
 	</insert>
 	
