@@ -25,7 +25,7 @@
 		<div class="form-group">
 			<label for="id" class="col-lg-2 control-label">id</label>
 			<div class="col-lg-8">
-				<input type="text" class="form-control"  name="id"  id="id" />
+				<input type="text" class="form-control"  name="list_id"  id="list_id" />
 			</div>
 		</div>
 		<div class="form-group">

@@ -15,7 +15,9 @@ public class BoardInsertController {
 	}
 	
 	@RequestMapping("insert_list")
-	public String insert_list(@RequestParam String title, String content){
+	public String insert_list(@RequestParam String list_id, String title, String content){
+		
+		
 		return "insert_list";
 	}
 }
