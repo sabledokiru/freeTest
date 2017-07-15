@@ -5,6 +5,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>메인1</title>
+	<jsp:include page="/WEB-INF/views/source.jsp"/>
 	<style>
 		.main_Box{
 			position: absolute;
@@ -20,7 +21,34 @@
 </head>
 <body>
 <div class="main_Box">
-	<a href="insert_form">insert_form 인설트폼폼</a>
+	<form  id="insert_form" class="form-horizontal">
+		<div class="form-group">
+			<label for="id" class="col-lg-2 control-label">id</label>
+			<div class="col-lg-8">
+				<input type="text" class="form-control"  name="id"  id="id" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="id" class="col-lg-2 control-label">제목</label>
+			<div class="col-lg-8">
+				<input type="text" class="form-control"  name="title"  id="title" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="pwd" class="col-lg-2 control-label">내용</label>
+			<div class="col-lg-8">
+				<textarea name="content"  id="content" rows="10" cols="50"></textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-10">
+				<button type="button" id="insertBtn"  class="btn btn-default">등록하기</button>
+			</div>
+		</div>
+	</form>
 </div>
+<script>
+
+</script>
 </body>
 </html>
