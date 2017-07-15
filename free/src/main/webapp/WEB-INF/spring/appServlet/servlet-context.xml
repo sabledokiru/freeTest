@@ -6,7 +6,7 @@
 	<!-- DB 접속 정보를 가지고 있는 문서 읽어들이기 -->
 	<beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<beans:property name="location">
-			<beans:value>classpath:com/beadnet/test/mybatis/db.properties
+			<beans:value>classpath:com/beadnet/free/mybatis/db.properties
 			</beans:value>
 		</beans:property>
 	</beans:bean>
@@ -22,7 +22,7 @@
 	<!-- SqlSessionFactory 객체 -->
 	<beans:bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
-		<beans:property name="configLocation" value="classpath:com/beadnet/test/mybatis/generatorConfig.xml" />
+		<beans:property name="configLocation" value="classpath:com/beadnet/free/mybatis/generatorConfig.xml" />
 	</beans:bean>
 
 	<!-- Dao 에 주입해줄 SqlSession 인터페이스를 구현한 SqlSessionTemplate 객체 -->
