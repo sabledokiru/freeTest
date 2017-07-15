@@ -23,21 +23,21 @@
 <div class="main_Box">
 	<form  id="insert_list" class="form-horizontal">
 		<div class="form-group">
-			<label for="id" class="col-lg-2 control-label">id</label>
+			<label for="id" class="col-lg-2 control-label">f_user_seq</label>
 			<div class="col-lg-8">
-				<input type="text" class="form-control"  name="list_id"  id="list_id" />
+				<input type="text" class="form-control"  name="f_user_seq"  id="f_user_seq" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="id" class="col-lg-2 control-label">제목</label>
 			<div class="col-lg-8">
-				<input type="text" class="form-control"  name="title"  id="title" />
+				<input type="text" class="form-control"  name="f_title"  id="f_title" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="pwd" class="col-lg-2 control-label">내용</label>
 			<div class="col-lg-8">
-				<textarea name="content"  id="content" rows="10" cols="50"></textarea>
+				<textarea name="f_content"  id="f_content" rows="10" cols="50"></textarea>
 			</div>
 		</div>
 		<div class="form-group">

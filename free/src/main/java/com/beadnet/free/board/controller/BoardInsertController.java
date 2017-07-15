@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.beadnet.free.board.dto.BoardDto;
 import com.beadnet.free.board.service.BoardService;
@@ -21,8 +22,11 @@ public class BoardInsertController {
 	}
 	
 	@RequestMapping("insert_list")
-	public int insert_list(@RequestParam String list_id, String title, String content,
-			@ModelAttribute BoardDto dto){
-		return boardService.insert_list(dto);
+	public ModelAndView insert_list(@ModelAttribute BoardDto dto){
+		ModelAndView mView = new ModelAndView();
+		dto.setF_list_seq(1);
+		boardService.insert_list(dto);
+		mView.setViewName("list");
+		return mView;
 	}
 }
