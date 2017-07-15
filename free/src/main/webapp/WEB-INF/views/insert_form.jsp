@@ -21,7 +21,7 @@
 </head>
 <body>
 <div class="main_Box">
-	<form  id="insert_form" class="form-horizontal">
+	<form  id="insert_list" class="form-horizontal">
 		<div class="form-group">
 			<label for="id" class="col-lg-2 control-label">id</label>
 			<div class="col-lg-8">
