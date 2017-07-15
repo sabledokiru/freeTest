@@ -24,9 +24,9 @@ public class BoardInsertController {
 	@RequestMapping("insert_list")
 	public ModelAndView insert_list(@ModelAttribute BoardDto dto){
 		ModelAndView mView = new ModelAndView();
-		dto.setF_list_seq(1);
 		boardService.insert_list(dto);
-		mView.setViewName("list");
+		/* setViewName list페이지로 변경 */
+		mView.setViewName("home");
 		return mView;
 	}
 }

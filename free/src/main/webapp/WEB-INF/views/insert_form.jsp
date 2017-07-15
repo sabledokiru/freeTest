@@ -21,13 +21,8 @@
 </head>
 <body>
 <div class="main_Box">
-	<form  id="insert_list" class="form-horizontal">
-		<div class="form-group">
-			<label for="id" class="col-lg-2 control-label">f_user_seq</label>
-			<div class="col-lg-8">
-				<input type="text" class="form-control"  name="f_user_seq"  id="f_user_seq" />
-			</div>
-		</div>
+	<form  action="insert_list.do"  id="insert_list" class="form-horizontal" method="post">
+		<input type="hidden" name="f_user_seq" value="1" />
 		<div class="form-group">
 			<label for="id" class="col-lg-2 control-label">제목</label>
 			<div class="col-lg-8">
@@ -42,7 +37,7 @@
 		</div>
 		<div class="form-group">
 			<div class="col-lg-offset-2 col-lg-10">
-				<button type="button" id="insertBtn"  class="btn btn-default">등록하기</button>
+				<button type="submit" id="insertBtn"  class="btn btn-default">등록하기</button>
 			</div>
 		</div>
 	</form>

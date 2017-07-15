@@ -56,5 +56,7 @@
 	</beans:bean>
 
 	<context:component-scan base-package="com.beadnet.free" />
+	<context:component-scan base-package="com.beadnet.free.board" />
+	<context:component-scan base-package="com.beadnet.free.users" />
 
 </beans:beans>
