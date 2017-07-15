@@ -2,6 +2,7 @@ package com.beadnet.free.board.dto;
 
 public class BoardDto {
 	
+
 	private String f_title;
 	private String f_content;
 	private String f_regdate;
@@ -11,17 +12,21 @@ public class BoardDto {
 	private int f_list_seq;
 	
 	
+	/* users 아이디 */
+	private String f_id;
+	
 	/* 디폴트 */
 	BoardDto(){}
 
 
-	public BoardDto(String f_title, String f_content, String f_regdate, int f_user_seq, int f_list_seq) {
+	public BoardDto(String f_title, String f_content, String f_regdate, int f_user_seq, int f_list_seq, String f_id) {
 		super();
 		this.f_title = f_title;
 		this.f_content = f_content;
 		this.f_regdate = f_regdate;
 		this.f_user_seq = f_user_seq;
 		this.f_list_seq = f_list_seq;
+		this.f_id = f_id;
 	}
 
 
@@ -73,6 +78,15 @@ public class BoardDto {
 	public void setF_list_seq(int f_list_seq) {
 		this.f_list_seq = f_list_seq;
 	}
-	
+
+
+	public String getF_id() {
+		return f_id;
+	}
+
+
+	public void setF_id(String f_id) {
+		this.f_id = f_id;
+	}
 	
 }

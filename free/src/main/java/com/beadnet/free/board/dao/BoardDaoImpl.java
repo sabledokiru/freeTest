@@ -1,5 +1,7 @@
 package com.beadnet.free.board.dao;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.beadnet.free.board.dto.BoardDto;
@@ -7,10 +9,12 @@ import com.beadnet.free.board.dto.BoardDto;
 @Repository
 public class BoardDaoImpl implements BoardDao{
 
+	@Autowired
+	private SqlSession boardSession;
+	
 	@Override
 	public int insert_list(BoardDto dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		return boardSession.insert("board.insert",dto);
 	}
 
 }
