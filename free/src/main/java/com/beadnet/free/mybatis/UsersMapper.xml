@@ -2,5 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="users">
 
+	<sql id="col">
+		f_id,
+		f_pw,
+		seq_free_user
+	</sql>
+
+	<insert id="userInsert" parameterType="usersDto">
+		INSERT INTO 
+			free_user 
+			(
+				<include refid="col" />
+			)
+		VALUES 
+			(
+				#{f_id}, #{ f_pw}, seq_free_user.NEXTVAL
+			)
+	</insert>
+
+	<select id="canUseId" parameterType="string" resultType="int">
+		SELECT 
+			NVL(MAX(ROWNUM), 0)
+		FROM 
+			free_user
+		WHERE 
+			f_id = #{f_id}
+	</select>
+	
+	<select id="getId" parameterType="int" resultType="string">
+		SELECT 
+			f_id
+		FROM 
+			free_user
+		WHERE 
+			seq_free_user = #{seq_free_user}
+	</select>
 	
 </mapper>

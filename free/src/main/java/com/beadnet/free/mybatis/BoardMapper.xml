@@ -2,10 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
 
+	<sql id="col">
+		seq_free_list,
+		seq_free_user,
+		f_title,
+		f_content,
+		f_regdate
+	</sql>
+	
+	<sql id="dateForm">
+		TO_CHAR(f_regdate, 'YYYY.MM.DD HH24:MI') AS f_regdate
+	</sql>
+
+
 	<insert id="insert" parameterType="boardDto">
 		INSERT INTO FREE_LIST VALUES(
 			seq_free_list.NEXTVAL ,#{seq_free_user}, #{f_title}, #{f_content}, SYSDATE
 		)
 	</insert>
+	
+	<select id="getList" resultType="boardDto">
+		SELECT
+			seq_free_list,
+			seq_free_user,
+			f_title,
+			f_content,
+			<include refid="dateForm" />
+		FROM free_list
+	</select>
 	
 </mapper>
