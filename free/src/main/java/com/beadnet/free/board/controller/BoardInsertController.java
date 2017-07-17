@@ -61,6 +61,7 @@ public class BoardInsertController {
 		if(id_check){
 			String pw_check = boardService.getPwd(f_id);
 			if(pw_check.equals(f_pw)){
+				boardService.deleteList(seq_free_list);
 				boardService.delete_list(seq_free_list);
 			}else{
 				return false;

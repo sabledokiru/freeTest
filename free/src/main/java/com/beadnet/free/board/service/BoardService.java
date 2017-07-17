@@ -12,4 +12,6 @@ public interface BoardService {
 	public String getPwd(String f_id);
 	public ModelAndView getData(int seq_free_list);
 	public int list_update(BoardDto dto);
+	public void deleteList(int seq_free_list);
+	
 }

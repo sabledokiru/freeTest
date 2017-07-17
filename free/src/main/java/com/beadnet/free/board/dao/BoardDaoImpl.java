@@ -45,4 +45,10 @@ public class BoardDaoImpl implements BoardDao{
 	}
 
 
+	@Override
+	public void deleteList(int seq_free_list) {
+		boardSession.insert("board.deleteList", seq_free_list);
+	}
+
+
 }

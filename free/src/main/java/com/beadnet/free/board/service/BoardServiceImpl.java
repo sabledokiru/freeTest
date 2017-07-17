@@ -56,4 +56,10 @@ public class BoardServiceImpl implements BoardService{
 		return boardDao.list_update(dto);
 	}
 
+
+	@Override
+	public void deleteList(int seq_free_list) {
+		boardDao.deleteList(seq_free_list);
+	}
+
 }

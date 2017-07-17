@@ -36,5 +36,13 @@
 		WHERE f_list_seq=#{seq_free_list}
 	</update>
 	
+	<insert id="deleteList" parameterType="int">
+		INSERT INTO FREE_DELETE
+		VALUE(
+			SELECT * FROM FREE_LIST
+			WHERE f_list_seq=#{seq_free_list}
+		)
+	</insert>
+	
 	
 </mapper>
