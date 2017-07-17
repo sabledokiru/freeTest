@@ -43,6 +43,26 @@
 	</form>
 </div>
 <script>
+/* 제목10자 , 내용 20자  */
+function chkTitle(str) {
+	var reg_title = /^[가-힣]{2,10}$/;
+	if (!reg_title.test(str)) {
+		return false;
+	}
+	return true;
+}
+
+$("#f_title").on("change",function(){
+	$("#f_title").val($("#f_title").val().trim());
+	if (!chkTitle($('#f_title').val().trim())) {
+		alert("한글만 입력하세요. (2~10자)");
+		$(this).focus();
+	}else{
+			
+	}
+});
+
+ 
 
 </script>
 </body>
