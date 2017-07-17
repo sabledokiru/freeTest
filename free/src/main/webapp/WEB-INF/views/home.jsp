@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8" />
-	<title>메인1</title>
+	<title>메인111</title>
     <link rel="shortcut icon" type="image/x-icon" href="//static12.samsungcard.com/images/personal/samsung.ico">
     <link rel="stylesheet" type="text/css" href="//static12.samsungcard.com/css/personal/base.css">
     <link rel="stylesheet" type="text/css" href="//static12.samsungcard.com/css/personal/apply/payment.css">
@@ -55,8 +55,14 @@
             </div>
         </header>
 	</div>
+<<<<<<< HEAD
 		<input type="button" value="등록" onclick="location.href='insert_form.do'" style="margin-left: 700px; margin-top: 280px;">
 		<input type="button" value="리스트" onclick="#">
 		<input type="button" value="상세페이지" onclick="location.href='detail.do?f_list_seq=1'">
+=======
+	<a href="insert_form.do">인설트</a>
+	<a href="delete_form.do">삭제</a>
+	<a href="update_form.do?seq_free_list=6">업데이트</a>
+>>>>>>> refs/heads/master
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.beadnet.free.board.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.beadnet.free.board.dto.BoardDto;
 
@@ -18,6 +19,7 @@ public class BoardDaoImpl implements BoardDao{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public BoardDto getData(int no) {
 		System.out.println("boardDao start!");
 		int dto2 = boardSession.update("board.viewCount", no);
@@ -27,4 +29,44 @@ public class BoardDaoImpl implements BoardDao{
 	}
 
 	
+=======
+	public void delete_list(int seq_free_list) {
+		boardSession.delete("board.delete_list", seq_free_list);
+		
+	}
+
+	@Override
+	public String existingId(String f_id) {
+		return boardSession.selectOne("board.existingId", f_id);
+	}
+
+	@Override
+	public String getPwd(String f_id) {
+		return boardSession.selectOne("board.getPw", f_id);
+	}
+
+	@Override
+	public BoardDto getData(int seq_free_list) {
+		return boardSession.selectOne("board.getData", seq_free_list);
+	}
+
+	@Override
+	public int list_update(BoardDto dto) {
+		return boardSession.update("board.list_update", dto);
+	}
+
+
+	@Override
+	public void deleteList(int seq_free_list) {
+		boardSession.insert("board.deleteList", seq_free_list);
+	}
+
+	@Override
+	public void updateList(BoardDto dto) {
+		boardSession.insert("board.updateList", dto);
+		
+	}
+
+
+>>>>>>> refs/heads/master
 }

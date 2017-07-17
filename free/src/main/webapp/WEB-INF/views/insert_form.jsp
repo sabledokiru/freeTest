@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8" />
-	<title>메인1</title>
+	<title>입력페이지</title>
 	<jsp:include page="/WEB-INF/views/source.jsp"/>
 	<style>
 		.main_Box{
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="pwd" class="col-lg-2 control-label">내용</label>
+			<label for="f_content" class="col-lg-2 control-label">내용</label>
 			<div class="col-lg-8">
 				<textarea name="f_content"  id="f_content" rows="10" cols="50"></textarea>
 			</div>
