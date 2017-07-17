@@ -13,5 +13,6 @@ public interface BoardService {
 	public ModelAndView getData(int seq_free_list);
 	public int list_update(BoardDto dto);
 	public void deleteList(int seq_free_list);
+	public void updateList(BoardDto dto);
 	
 }

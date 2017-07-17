@@ -57,6 +57,6 @@
 	</div>
 	<a href="insert_form.do">인설트</a>
 	<a href="delete_form.do">삭제</a>
-	<a href="update_form.do?seq_free_list=5">업데이트</a>
+	<a href="update_form.do?seq_free_list=6">업데이트</a>
 </body>
 </html>

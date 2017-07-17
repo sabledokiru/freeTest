@@ -39,9 +39,17 @@
 	<insert id="deleteList" parameterType="int">
 		INSERT INTO FREE_DELETE
 		VALUE(
-			SELECT * FROM FREE_LIST
+			SELECT f_list_seq, f_user_seq, f_title, f_content, f_regdate, SYSDATE FROM FREE_LIST
 			WHERE f_list_seq=#{seq_free_list}
-		)
+		) 
+	</insert>
+	
+		<insert id="updateList" parameterType="boardDto">
+		INSERT INTO FREE_update
+		VALUE(
+			SELECT f_list_seq, f_user_seq, f_title, f_content, f_regdate, SYSDATE FROM FREE_LIST
+			WHERE f_list_seq=#{seq_free_list}
+		) 
 	</insert>
 	
 	

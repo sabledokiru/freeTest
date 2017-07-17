@@ -44,6 +44,7 @@ public class BoardInsertController {
 	@RequestMapping("list_update")
 	@ResponseBody
 	public int list_update(@ModelAttribute BoardDto dto){
+		boardService.updateList(dto);
 		return boardService.list_update(dto);
 	}
 	

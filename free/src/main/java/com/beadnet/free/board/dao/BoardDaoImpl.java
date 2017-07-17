@@ -50,5 +50,11 @@ public class BoardDaoImpl implements BoardDao{
 		boardSession.insert("board.deleteList", seq_free_list);
 	}
 
+	@Override
+	public void updateList(BoardDto dto) {
+		boardSession.insert("board.updateList", dto);
+		
+	}
+
 
 }

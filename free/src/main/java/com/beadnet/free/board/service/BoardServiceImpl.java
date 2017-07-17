@@ -62,4 +62,10 @@ public class BoardServiceImpl implements BoardService{
 		boardDao.deleteList(seq_free_list);
 	}
 
+
+	@Override
+	public void updateList(BoardDto dto) {
+		boardDao.updateList(dto);
+	}
+
 }
