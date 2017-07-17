@@ -19,16 +19,15 @@ public class BoardServiceImpl implements BoardService{
 		return boardDao.insert_list(dto);
 	}
 
-<<<<<<< HEAD
 	@Override
-	public ModelAndView getData(int no) {
+	public ModelAndView getDataDetail(int no) {
 		System.out.println("BoardServiceImpl 시작!!");
-		BoardDto dto = boardDao.getData(no);
+		BoardDto dto = boardDao.getDataDetail(no);
 		System.out.println("ㄷㅏ음?????          " + dto);
 		ModelAndView mView = new ModelAndView();
 		mView.addObject("dto", dto);
 		return mView;
-=======
+	}
 
 	@Override
 	public void delete_list(int seq_free_list) {
@@ -76,7 +75,6 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void updateList(BoardDto dto) {
 		boardDao.updateList(dto);
->>>>>>> refs/heads/master
 	}
 
 }

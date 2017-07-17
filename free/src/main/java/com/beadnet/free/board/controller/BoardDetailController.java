@@ -19,7 +19,7 @@ public class BoardDetailController {
 		BoardDto dto = new BoardDto();
 		int no = dto.getSeq_free_list();
 		
-		ModelAndView mView = service.getData(no);
+		ModelAndView mView = service.getDataDetail(no);
 		mView.setViewName("detail");
 		return mView;
 	}

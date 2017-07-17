@@ -13,6 +13,6 @@ public interface BoardDao {
 	public void deleteList(int seq_free_list);
 	public void updateList(BoardDto dto);
 	
-	public BoardDto getData(int no);
+	public BoardDto getDataDetail(int no);
 	
 }

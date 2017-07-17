@@ -8,8 +8,7 @@
 		)
 	</insert>
 	
-<<<<<<< HEAD
-	<select id="getData" parameterType="int" resultType="boardDto">
+	<select id="getDataDetail" parameterType="int" resultType="boardDto">
 		SELECT  * FROM 
 		FREE_LIST A ,  free_view B 
 		WHERE A.f_list_seq = B.f_list_seq
@@ -22,7 +21,6 @@
 	 where 
 	 f_list_seq = 1
 	</update>
-=======
 	<delete id="delete_list" parameterType="int">
 		DELETE FROM FREE_LIST
 		WHERE f_list_seq=#{seq_free_list}
@@ -67,6 +65,5 @@
 		) 
 	</insert>
 	
->>>>>>> refs/heads/master
 	
 </mapper>

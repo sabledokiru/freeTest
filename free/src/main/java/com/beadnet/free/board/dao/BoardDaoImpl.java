@@ -19,17 +19,15 @@ public class BoardDaoImpl implements BoardDao{
 	}
 
 	@Override
-<<<<<<< HEAD
-	public BoardDto getData(int no) {
+	public BoardDto getDataDetail(int no) {
 		System.out.println("boardDao start!");
 		int dto2 = boardSession.update("board.viewCount", no);
-		BoardDto dto = boardSession.selectOne("board.getData", no);
+		BoardDto dto = boardSession.selectOne("board.getDataDetail", no);
 		System.out.println("boardDao dto=????????" + dto);
 		return dto;
 	}
 
-	
-=======
+	@Override
 	public void delete_list(int seq_free_list) {
 		boardSession.delete("board.delete_list", seq_free_list);
 		
@@ -67,6 +65,4 @@ public class BoardDaoImpl implements BoardDao{
 		
 	}
 
-
->>>>>>> refs/heads/master
 }
