@@ -31,6 +31,15 @@ public class BoardDaoImpl implements BoardDao{
 		return  boardSession.selectOne("board.getTotalRowNum", map);
 	}
 	@Override
+	public BoardDto getDataDetail(int no) {
+		System.out.println("boardDao start!");
+		int dto2 = boardSession.update("board.viewCount", no);
+		BoardDto dto = boardSession.selectOne("board.getData", no);
+		System.out.println("boardDao dto=????????" + dto);
+		return dto;
+	}
+
+	
 	public void delete_list(int seq_free_list) {
 		boardSession.delete("board.delete_list", seq_free_list);
 		

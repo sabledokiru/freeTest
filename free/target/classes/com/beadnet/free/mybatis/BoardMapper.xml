@@ -47,7 +47,7 @@
 			)
 		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
 	</select>
-	
+
 	<select id="getTotalRowNum" parameterType="map" resultType="int">
 		SELECT 
 			NVL(MAX(ROWNUM), 0)
@@ -55,6 +55,20 @@
 			free_list
 		<include refid="search" />
 	</select>
+
+	<select id="getData" parameterType="int" resultType="boardDto">
+		SELECT  * FROM 
+		FREE_LIST A ,  free_view B 
+		WHERE A.f_list_seq = B.f_list_seq
+	</select>
+	
+	<update id="viewCount" parameterType="int">
+	update free_view 
+	 set  
+	 f_view_count = nvl(f_view_count,0)+1
+	 where 
+	 f_list_seq = 1
+	</update>
 
 	<delete id="delete_list" parameterType="int">
 		DELETE FROM FREE_LIST

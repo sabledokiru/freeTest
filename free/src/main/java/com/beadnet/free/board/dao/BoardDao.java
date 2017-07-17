@@ -19,5 +19,6 @@ public interface BoardDao {
 	public List<BoardDto> get_list(Map<String, Object> map);
 	
 	public int getTotalRowNum(Map<String, Object> map);
+	public BoardDto getDataDetail(int no);
 	
 }

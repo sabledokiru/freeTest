@@ -9,15 +9,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.beadnet.free.board.dao.BoardDao;
 import com.beadnet.free.board.dto.BoardDto;
-import com.beadnet.free.users.dao.UsersDao;
 
 @Service
 public class BoardServiceImpl implements BoardService{
 
 	@Autowired
 	private BoardDao	boardDao;
-	@Autowired
-	private UsersDao	userDao;
+
 
 	@Override
 	public int insert_list(BoardDto dto){
@@ -32,8 +30,8 @@ public class BoardServiceImpl implements BoardService{
 		// BoardDto 에 id 넣기
 		for(BoardDto tmp : list){
 			int f_user_seq = tmp.getSeq_free_user();
-			String f_id = userDao.getId(f_user_seq);
-			tmp.setF_id(f_id);
+			/*String f_id = userDao.getId(f_user_seq);*/
+		/*	tmp.setF_id(f_id);*/
 		}
 
 		// 모델 리턴
@@ -46,6 +44,17 @@ public class BoardServiceImpl implements BoardService{
 	public int getTotalRowNum(Map<String, Object> map){
 		return boardDao.getTotalRowNum(map);
 	}
+
+	@Override
+	public ModelAndView getDataDetail(int no) {
+		System.out.println("BoardServiceImpl 시작!!");
+		BoardDto dto = boardDao.getData(no);
+		System.out.println("ㄷㅏ음?????          " + dto);
+		ModelAndView mView = new ModelAndView();
+		mView.addObject("dto", dto);
+		return mView;
+	}
+
 
 	@Override
 	public void delete_list(int seq_free_list) {

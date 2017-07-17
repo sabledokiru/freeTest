@@ -14,6 +14,8 @@ public interface BoardService{
 	public ModelAndView get_list(Map<String, Object> map);
 
 	public int getTotalRowNum(Map<String, Object> map);
+	
+	public ModelAndView getDataDetail(int no);
 	public void delete_list(int seq_free_list);
 	public boolean existingId(String f_id);
 	public String getPwd(String f_id);
