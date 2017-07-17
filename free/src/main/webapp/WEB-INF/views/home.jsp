@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8" />
-	<title>메인1</title>
+	<title>메인</title>
     <link rel="shortcut icon" type="image/x-icon" href="//static12.samsungcard.com/images/personal/samsung.ico">
     <link rel="stylesheet" type="text/css" href="//static12.samsungcard.com/css/personal/base.css">
     <link rel="stylesheet" type="text/css" href="//static12.samsungcard.com/css/personal/apply/payment.css">
