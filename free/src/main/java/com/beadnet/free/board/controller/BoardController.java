@@ -43,5 +43,5 @@ public class BoardController{
 		mView.setViewName("list");
 		return mView;
 	}
-
+dfd
 }
