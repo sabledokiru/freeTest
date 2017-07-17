@@ -14,6 +14,12 @@
 		TO_CHAR(f_regdate, 'YYYY.MM.DD HH24:MI') AS f_regdate
 	</sql>
 
+	<sql id="search">
+		<if test="keyword != ''">
+			WHERE
+				(SELECT f_id FROM free_user, free_list WHERE free_user.seq_free_user = free_list.seq_free_user) LIKE #{keyword} || '%'
+		</if>
+	</sql>
 
 	<insert id="insert" parameterType="boardDto">
 		INSERT INTO FREE_LIST VALUES(
@@ -21,14 +27,33 @@
 		)
 	</insert>
 	
-	<select id="getList" resultType="boardDto">
-		SELECT
-			seq_free_list,
-			seq_free_user,
-			f_title,
-			f_content,
-			<include refid="dateForm" />
-		FROM free_list
+	<select id="getList" parameterType="map" resultType="boardDto">
+		SELECT 
+			*
+		FROM
+			(SELECT result.*, ROWNUM rnum
+			 FROM 
+			 	(SELECT 
+					seq_free_list,
+					seq_free_user,
+					f_title,
+					f_content,
+					<include refid="dateForm" />
+				FROM 
+					free_list
+			 	 <include refid="search" />
+			 	 ORDER BY seq_free_list DESC
+			 	) result
+			)
+		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+	</select>
+	
+	<select id="getTotalRowNum" parameterType="map" resultType="int">
+		SELECT 
+			NVL(MAX(ROWNUM), 0)
+		FROM 
+			free_list
+		<include refid="search" />
 	</select>
 	
 </mapper>

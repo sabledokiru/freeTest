@@ -15,7 +15,9 @@
 		#left ul {margin:50px auto; width:200px; overflow:hidden;}
 		#left ul li {float:left; width:48px; height:48px; text-align:center; line-height:50px; border:1px solid lightblue;}
 		#left ul li:hover {border:1px solid darkblue;}
-		#left ul li a {color:#000; font-weight: bold; font-size:18px;}
+		#left ul li a {display:block; width:100%; height:100%; color:#000; font-weight: bold; font-size:18px;}
+		#left ul li.all {width:97px; color:red;}
+		#left ul li.all a {color:red;}
 		#left #home {clear:both; margin-top:150px;}
 		#left #home a {color:#333;}
 		#right {float:left; padding:0 35px; width:680px; height:100%; background:#f5f5f5;}
@@ -29,6 +31,7 @@
 		.text-left a:hover {color:red;}
 		table a {color:darkblue;}
 		table tbody tr:hover {background:#eee;}
+		.page {margin-top:60px; width:680px; text-align:center;}
 	</style>
 </head>
 <body>
@@ -37,32 +40,33 @@
 			<h3>알파벳을 눌러보세요.</h3>
 			<p>해당 알파벳으로 시작하는 작성자의 글만 보여집니다.</p>
 			<ul>
-				<li><a href="a">A</a></li>
-				<li><a href="b">B</a></li>
-				<li><a href="c">C</a></li>
-				<li><a href="d">D</a></li>
-				<li><a href="e">E</a></li>
-				<li><a href="f">F</a></li>
-				<li><a href="g">G</a></li>
-				<li><a href="h">H</a></li>
-				<li><a href="i">I</a></li>
-				<li><a href="j">J</a></li>
-				<li><a href="k">K</a></li>
-				<li><a href="l">L</a></li>
-				<li><a href="m">M</a></li>
-				<li><a href="n">N</a></li>
-				<li><a href="o">O</a></li>
-				<li><a href="p">P</a></li>
-				<li><a href="q">Q</a></li>
-				<li><a href="r">R</a></li>
-				<li><a href="s">S</a></li>
-				<li><a href="t">T</a></li>
-				<li><a href="u">U</a></li>
-				<li><a href="v">V</a></li>
-				<li><a href="w">W</a></li>
-				<li><a href="x">X</a></li>
-				<li><a href="y">Y</a></li>
-				<li><a href="z">Z</a></li>
+				<li><a href="list.do?keyword=a">A</a></li>
+				<li><a href="list.do?keyword=b">B</a></li>
+				<li><a href="list.do?keyword=c">C</a></li>
+				<li><a href="list.do?keyword=d">D</a></li>
+				<li><a href="list.do?keyword=e">E</a></li>
+				<li><a href="list.do?keyword=f">F</a></li>
+				<li><a href="list.do?keyword=g">G</a></li>
+				<li><a href="list.do?keyword=h">H</a></li>
+				<li><a href="list.do?keyword=i">I</a></li>
+				<li><a href="list.do?keyword=j">J</a></li>
+				<li><a href="list.do?keyword=k">K</a></li>
+				<li><a href="list.do?keyword=l">L</a></li>
+				<li><a href="list.do?keyword=m">M</a></li>
+				<li><a href="list.do?keyword=n">N</a></li>
+				<li><a href="list.do?keyword=o">O</a></li>
+				<li><a href="list.do?keyword=p">P</a></li>
+				<li><a href="list.do?keyword=q">Q</a></li>
+				<li><a href="list.do?keyword=r">R</a></li>
+				<li><a href="list.do?keyword=s">S</a></li>
+				<li><a href="list.do?keyword=t">T</a></li>
+				<li><a href="list.do?keyword=u">U</a></li>
+				<li><a href="list.do?keyword=v">V</a></li>
+				<li><a href="list.do?keyword=w">W</a></li>
+				<li><a href="list.do?keyword=x">X</a></li>
+				<li><a href="list.do?keyword=y">Y</a></li>
+				<li><a href="list.do?keyword=z">Z</a></li>
+				<li class="all"><a href="list.do">ALL</a></li>
 			</ul>
 			<p id="home"><a href="home.do">홈으로</a></p>
 		</div>
@@ -111,6 +115,27 @@
 					</c:choose>
 				</tbody>
 			</table>
+			<div class="page">
+				<c:choose>
+					<c:when test="${startPageNum ne 1 }">
+						<a href="list.do?pageNum=${startPageNum-1 }">&lt;&lt;</a>&nbsp;
+					</c:when>
+					<c:otherwise>
+						<a href="javascript:;">&lt;</a>&nbsp;
+					</c:otherwise>
+				</c:choose>
+				<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
+					<a href="list.do?pageNum=${i }&&keyword=${keyword } ">${i }</a>
+				</c:forEach>
+				<c:choose>
+					<c:when test="${endPageNum lt totalPageCount }">
+						<a href="list.do?pageNum=${endPageNum+1 }">&gt;</a>&nbsp;
+					</c:when>
+					<c:otherwise>
+						<a href="javascript:;">&gt;&gt;</a>&nbsp;
+					</c:otherwise>
+				</c:choose>
+			</div>
 		</div>
 	</div>
 </body>

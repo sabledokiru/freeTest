@@ -1,6 +1,7 @@
 package com.beadnet.free.board.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,13 @@ public class BoardDaoImpl implements BoardDao{
 	}
 
 	@Override
-	public List<BoardDto> get_list(){
-		return boardSession.selectList("board.getList");
+	public List<BoardDto> get_list(Map<String, Object> map){
+		return  boardSession.selectList("board.getList", map);
+	}
+
+	@Override
+	public int getTotalRowNum(Map<String, Object> map){
+		return  boardSession.selectOne("board.getTotalRowNum", map);
 	}
 
 }
