@@ -1,5 +1,8 @@
 package com.beadnet.free.users.service;
 
-public class UsersServiceImpl {
+import org.springframework.stereotype.Service;
+
+@Service
+public class UsersServiceImpl implements UsersService{
 
 }

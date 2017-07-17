@@ -1,5 +1,8 @@
 package com.beadnet.free.users.dao;
 
-public class UsersDaoImpl {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class UsersDaoImpl implements UsersDao{
 
 }

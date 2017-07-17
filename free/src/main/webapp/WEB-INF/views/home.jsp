@@ -55,6 +55,8 @@
             </div>
         </header>
 	</div>
-	<a href="insert_form.do">인설트</a>
+		<input type="button" value="등록" onclick="location.href='insert_form.do'" style="margin-left: 700px; margin-top: 280px;">
+		<input type="button" value="리스트" onclick="#">
+		<input type="button" value="상세페이지" onclick="location.href='detail.do?f_list_seq=1'">
 </body>
 </html>
