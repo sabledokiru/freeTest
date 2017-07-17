@@ -15,8 +15,8 @@ public class BoardServiceImpl implements BoardService{
 
 	@Autowired
 	private BoardDao	boardDao;
-
-
+	
+	
 	@Override
 	public int insert_list(BoardDto dto){
 		return boardDao.insert_list(dto);
@@ -31,7 +31,7 @@ public class BoardServiceImpl implements BoardService{
 		for(BoardDto tmp : list){
 			int f_user_seq = tmp.getSeq_free_user();
 			/*String f_id = userDao.getId(f_user_seq);*/
-		/*	tmp.setF_id(f_id);*/
+			/*tmp.setF_id(f_id);*/
 		}
 
 		// 모델 리턴
