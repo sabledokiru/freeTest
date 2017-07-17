@@ -59,7 +59,7 @@ create table free_update(
 	seq_free_list int,
 	seq_free_user int,
 	f_title varchar(30) not null,
-	f_content varchar(50) not null,
+	f_content varchar(500) not null,
 	f_regdate date default sysdate,
 	f_update varchar(50)
 );

@@ -32,15 +32,15 @@
 		<form action="user_insert.do" method="post" id="frm">
 			<ul>
 				<li class="liId">
-					<p><label for="f_id">아이디 : </label><input type="text" name="f_id" id="f_id" placeholder="사용하실 아이디를 입력해주세요." /></p>
-					<p class="help warning">아이디를 입력해 주세요.</p>
+					<p><label for="f_id">아이디 : </label><input type="text" name="f_id" id="f_id" placeholder="영소문자 12자리 이하" /></p>
+					<p class="help warning">사용하실 아이디를 입력해주세요.</p>
 				</li>
 				<li>
-					<p><label for="f_pw">비밀번호 : </label><input type="text" name="f_pw" id="f_pw" placeholder="비밀번호를 입력해주세요." /></p>
+					<p><label for="f_pw">비밀번호 : </label><input type="password" name="f_pw" id="f_pw" placeholder="숫자 6자리 이하" /></p>
 					<p class="help warning">비밀번호를 입력해 주세요.</p>
 				</li>
-				<li>
-					<p><label for="">비밀번호 확인 : </label><input type="text" id="f_pw2" placeholder="비밀번호를 다시 입력해주세요." /></p>
+				<li>+
+					<p><label for="">비밀번호 확인 : </label><input type="password" id="f_pw2" placeholder="비밀번호를 다시 입력해주세요." /></p>
 					<p class="help warning">비밀번호를 다시 입력해주세요.</p>
 				</li>
 				<li class="btns">
@@ -51,7 +51,11 @@
 		</form>
 	</div>
 	<script>
-		$("#f_id").keyup(function(){
+
+		form_validation("#f_id", /^[a-z]{1,12}$/, "사용하실 수 있는 아이디입니다.", "영소문자로 12자리 이하로 입력해주세요.");
+		form_validation("#f_pw", /^[0-9]{1,6}$/, "사용하실 수 있는 비밀번호입니다.", "숫자로 6자리 이하로 입력해주세요.");
+	
+		$("#f_id").change(function(){
 			var inputFId = $(this).val();
 			$.ajax({
 				url : "can_use_id.do",
@@ -67,6 +71,19 @@
 			});
 		});
 
+		$("#f_pw").keyup(function(){
+			var f_pw = $("#f_pw").val();
+			var f_pw2 = $("#f_pw2").val();
+
+			if(f_pw == ""){
+				$(this).parent("p").siblings("p").text("비밀번호를 입력해 주세요.");
+			}else if(f_pw != f_pw2){
+				$("#f_pw2").parent("p").siblings("p").removeClass("success").addClass("warning").text("입력하신 비밀번호와 다릅니다.");
+			}else if(f_pw == f_pw2){
+				$("#f_pw2").parent("p").siblings("p").removeClass("warning").addClass("success").text("입력하신 비밀번호와 같습니다.");
+			}
+		});
+
 		$("#f_pw2").keyup(function(){
 			var f_pw = $("#f_pw").val();
 			var f_pw2 = $("#f_pw2").val();
@@ -74,9 +91,9 @@
 			if(f_pw2 == ""){
 				$(this).parent("p").siblings("p").text("비밀번호를 다시 입력해 주세요.");
 			}else if(f_pw != f_pw2){
-				$(this).parent("p").siblings("p").text("입력하신 비밀번호와 다릅니다.");
+				$(this).parent("p").siblings("p").removeClass("success").addClass("warning").text("입력하신 비밀번호와 다릅니다.");
 			}else if(f_pw == f_pw2){
-				$(this).parent("p").siblings("p").removeClass("warning").addClass("success").text("입력하신 비밀번호와 같습니다");
+				$(this).parent("p").siblings("p").removeClass("warning").addClass("success").text("입력하신 비밀번호와 같습니다.");
 			}
 		});
 
@@ -88,8 +105,25 @@
 					return false;
 				}
 			});
-			if(isSubmit) $("#frm").submit();
+			if(isSubmit){
+				alert("작성자 정보가 등록되었습니다.");
+				$("#frm").submit();
+			}
 		});
+
+		// 폼 발리데이션
+		function form_validation(w, x, y, z) {
+			$(w).keyup(function() {
+				var reg = new RegExp(x);
+				var this_val = $(this).val();	
+				var test_result = reg.test(this_val);
+				if (test_result) {
+					$(this).parent("p").siblings(".help").removeClass("warning").addClass("success").text(y);
+				}else{
+					$(this).parent("p").siblings(".help").removeClass("success").addClass("warning").text(z);
+				}
+			});
+		}
 	</script>
 </body>
 </html>
