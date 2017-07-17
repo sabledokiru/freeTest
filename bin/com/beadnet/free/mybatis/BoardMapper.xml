@@ -8,4 +8,49 @@
 		)
 	</insert>
 	
+	<delete id="delete_list" parameterType="int">
+		DELETE FROM FREE_LIST
+		WHERE f_list_seq=#{seq_free_list}
+	</delete>
+	
+	<select id="getPw" parameterType="string" resultType="string">
+		SELECT f_pw FROM FREE_USER
+		WHERE f_id =#{f_id}
+	</select>
+	
+	<select id="existingId" parameterType="string" resultType="string">
+		SELECT f_id FROM FREE_USER
+		WHERE f_id =#{f_id}
+	</select>
+	
+	<select id="getData" parameterType="int" resultType="boardDto">
+		SELECT * FROM FREE_LIST
+		WHERE f_list_seq=#{seq_free_list}
+	</select>
+	
+	<update id="list_update" parameterType="boardDto" >
+		UPDATE FREE_LIST 
+		SET 
+		f_title=#{f_title},
+		f_content=#{f_content}
+		WHERE f_list_seq=#{seq_free_list}
+	</update>
+	
+	<insert id="deleteList" parameterType="int">
+		INSERT INTO FREE_DELETE
+		VALUE(
+			SELECT f_list_seq, f_user_seq, f_title, f_content, f_regdate, SYSDATE FROM FREE_LIST
+			WHERE f_list_seq=#{seq_free_list}
+		) 
+	</insert>
+	
+		<insert id="updateList" parameterType="boardDto">
+		INSERT INTO FREE_update
+		VALUE(
+			SELECT f_list_seq, f_user_seq, f_title, f_content, f_regdate, SYSDATE FROM FREE_LIST
+			WHERE f_list_seq=#{seq_free_list}
+		) 
+	</insert>
+	
+	
 </mapper>
