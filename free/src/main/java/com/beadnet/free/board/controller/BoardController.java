@@ -44,7 +44,7 @@ public class BoardController{
 
 		// 리스트 가져오기
 		ModelAndView mView = boardService.get_list(map);
-		mView.addAllObjects(map);
+		mView.addAllObjects(page);
 		mView.setViewName("list");
 		return mView;
 	}

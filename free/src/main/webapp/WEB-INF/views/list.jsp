@@ -125,7 +125,7 @@
 					</c:otherwise>
 				</c:choose>
 				<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
-					<a href="list.do?pageNum=${i }&&keyword=${keyword } ">${i }</a>
+					<a href="list.do?pageNum=${i }&keyword=${keyword } ">${i }</a> | 
 				</c:forEach>
 				<c:choose>
 					<c:when test="${endPageNum lt totalPageCount }">
