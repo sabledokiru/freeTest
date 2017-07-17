@@ -4,8 +4,8 @@ DROP TABLE free_view;
 DROP TABLE free_list;
 DROP TABLE free_user;
 
-DROP SEQUENCE seq_free_update;
-DROP SEQUENCE seq_free_delete;
+-- DROP SEQUENCE seq_free_update;
+-- DROP SEQUENCE seq_free_delete;
 DROP SEQUENCE seq_free_view;
 DROP SEQUENCE seq_free_list;
 DROP SEQUENCE seq_free_user;
@@ -28,7 +28,7 @@ create table free_list(
 	seq_free_list int primary key,
 	seq_free_user int,
 	f_title varchar(30) not null,
-	f_content varchar(50) not null,
+	f_content varchar(500) not null,
 	f_regdate date default sysdate
 );
 alter table free_list add CONSTRAINT f_user_seq
