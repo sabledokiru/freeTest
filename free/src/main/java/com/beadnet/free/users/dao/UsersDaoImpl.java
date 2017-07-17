@@ -27,4 +27,9 @@ public class UsersDaoImpl implements UsersDao{
 		return session.selectOne("users.getId", f_user_seq);
 	}
 
+	@Override
+	public int getSeq(UsersDto usersDto){
+		return session.selectOne("users.getSeq", usersDto);
+	}
+
 }

@@ -27,4 +27,9 @@ public class UsersServiceImpl implements UsersService{
 		}
 	}
 
+	@Override
+	public int getSeq(UsersDto usersDto){
+		return usersDao.getSeq(usersDto);
+	}
+
 }

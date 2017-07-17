@@ -6,4 +6,6 @@ public interface UsersService {
 	public void uesrInsert(UsersDto usersDto);
 	
 	public boolean canUseId(String f_id);
+	
+	public int getSeq(UsersDto usersDto);
 }

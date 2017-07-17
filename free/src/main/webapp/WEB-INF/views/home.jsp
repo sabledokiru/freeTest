@@ -4,17 +4,15 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-<<<<<<< HEAD
 	<title>메인111</title>
     <link rel="shortcut icon" type="image/x-icon" href="//static12.samsungcard.com/images/personal/samsung.ico">
     <link rel="stylesheet" type="text/css" href="//static12.samsungcard.com/css/personal/base.css">
     <link rel="stylesheet" type="text/css" href="//static12.samsungcard.com/css/personal/apply/payment.css">
     <link rel="stylesheet" type="text/css" href="//static11.samsungcard.com/wcms/personal/main/css/new_main.css">
-=======
 	<title>Document</title>
->>>>>>> refs/remotes/origin/bom
+
 </head>
-<<<<<<< HEAD
+
 <body class="pc_body">
     <div id="wrap" class="main new_main">
         <!-- GNB -->
@@ -60,18 +58,8 @@
             </div>
         </header>
 	</div>
-		<input type="button" value="등록" onclick="location.href='insert_form.do'" style="margin-left: 700px; margin-top: 280px;">
-		<input type="button" value="리스트" onclick="#">
+		<input type="button" value="등록" onclick="location.href='user_insert_form.do'" style="margin-left: 700px; margin-top: 280px;">
+		<input type="button" value="리스트" onclick="location.href='list.do'">
 		<input type="button" value="상세페이지" onclick="location.href='detail.do?f_list_seq=1'">
-	<a href="insert_form.do">인설트</a>
-	<a href="delete_form.do">삭제</a>
-	<a href="update_form.do?seq_free_list=6">업데이트</a>
-=======
-<body>
-	<ul>
-		<li><a href="list.do">리스트</a></li>
-		<li><a href="user_insert_form.do">등록</a></li>
-	</ul>
->>>>>>> refs/remotes/origin/bom
 </body>
 </html>

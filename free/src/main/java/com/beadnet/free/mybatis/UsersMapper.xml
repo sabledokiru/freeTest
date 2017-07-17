@@ -38,4 +38,13 @@
 			seq_free_user = #{seq_free_user}
 	</select>
 	
+	<select id="getSeq" parameterType="usersDto" resultType="int">
+		SELECT
+			seq_free_user
+		FROM
+			free_user
+		WHERE
+			f_id = #{f_id}
+	</select>
+	
 </mapper>

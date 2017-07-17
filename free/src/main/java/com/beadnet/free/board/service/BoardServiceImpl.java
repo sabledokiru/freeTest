@@ -25,10 +25,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public ModelAndView getDataDetail(int no) {
-		System.out.println("BoardServiceImpl 시작!!");
-		BoardDto dto = boardDao.getDataDetail(no);
-		System.out.println("ㄷㅏ음?????          " + dto);
+	public ModelAndView getDataDetail(int seq_free_list) {
+		BoardDto dto = boardDao.getDataDetail(seq_free_list);
 		ModelAndView mView = new ModelAndView();
 		mView.addObject("dto", dto);
 		return mView;

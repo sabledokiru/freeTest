@@ -16,7 +16,7 @@ public interface BoardDao {
 	public void deleteList(int seq_free_list);
 	public void updateList(BoardDto dto);
 	
-	public BoardDto getDataDetail(int no);
+	public BoardDto getDataDetail(int seq_free_list);
 	
 	public List<BoardDto> get_list(Map<String, Object> map);
 	

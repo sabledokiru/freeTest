@@ -29,9 +29,12 @@
 	
 
 	<select id="getDataDetail" parameterType="int" resultType="boardDto">
-		SELECT  * FROM 
-		FREE_LIST A ,  free_view B 
-		WHERE A.f_list_seq = B.f_list_seq
+		SELECT 
+			A.seq_free_list, seq_free_user, f_title, f_content, f_regdate, B.f_view_count
+ 		FROM 
+			FREE_LIST A ,  free_view B 
+		WHERE 
+			A.seq_free_list = B.seq_free_list AND A.seq_free_list = #{seq_free_list}
 	</select>
 	
 	<update id="viewCount" parameterType="int">
@@ -39,11 +42,11 @@
 	 set  
 	 f_view_count = nvl(f_view_count,0)+1
 	 where 
-	 f_list_seq = 1
+	 seq_free_list = 1
 	</update>
 	<delete id="delete_list" parameterType="int">
 		DELETE FROM FREE_LIST
-		WHERE f_list_seq=#{seq_free_list}
+		WHERE seq_free_list=#{seq_free_list}
 	</delete>
 	
 	<select id="getPw" parameterType="string" resultType="string">
@@ -58,7 +61,7 @@
 	
 	<select id="getData" parameterType="int" resultType="boardDto">
 		SELECT * FROM FREE_LIST
-		WHERE f_list_seq=#{seq_free_list}
+		WHERE seq_free_list=#{seq_free_list}
 	</select>
 	
 	<update id="list_update" parameterType="boardDto" >
@@ -66,22 +69,24 @@
 		SET 
 		f_title=#{f_title},
 		f_content=#{f_content}
-		WHERE f_list_seq=#{seq_free_list}
+		WHERE seq_free_list=#{seq_free_list}
 	</update>
 	
 	<insert id="deleteList" parameterType="int">
 		INSERT INTO FREE_DELETE
 		VALUE(
-			SELECT f_list_seq, f_user_seq, f_title, f_content, f_regdate, SYSDATE FROM FREE_LIST
-			WHERE f_list_seq=#{seq_free_list}
+			SELECT seq_free_list, seq_free_user, f_title, f_content, f_regdate, SYSDATE 
+			FROM FREE_LIST
+			WHERE seq_free_list=#{seq_free_list}
 		) 
 	</insert>
 	
 		<insert id="updateList" parameterType="boardDto">
 		INSERT INTO FREE_update
 		VALUE(
-			SELECT f_list_seq, f_user_seq, f_title, f_content, f_regdate, SYSDATE FROM FREE_LIST
-			WHERE f_list_seq=#{seq_free_list}
+			SELECT seq_free_list, seq_free_user, f_title, f_content, f_regdate, SYSDATE 
+			FROM FREE_LIST
+			WHERE seq_free_list=#{seq_free_list}
 		) 
 	</insert>
 

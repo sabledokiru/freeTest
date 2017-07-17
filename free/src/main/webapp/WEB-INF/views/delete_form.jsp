@@ -24,7 +24,7 @@
 <!-- 아이디와 비밀번호를 확인하여 seq_free_list의 시퀀스 넘을 확인 후 삭제 -->
 <div class="main_Box">
 	<form  action="delete_list.do"  id="delete_list" class="form-horizontal" method="post">
-		<input type="hidden" name="seq_free_list" value="5" />
+		<input type="hidden" name="seq_free_list" value="${seq_free_list}" />
 		<div class="form-group">
 			<label for="f_id" class="col-lg-2 control-label">아이디</label>
 			<div class="col-lg-8">

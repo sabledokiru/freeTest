@@ -3,6 +3,8 @@ package com.beadnet.free.board.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -46,23 +48,24 @@ public class BoardController{
 		mView.setViewName("list");
 		return mView;
 	}
-	
 
 	@RequestMapping("detail")
-	public ModelAndView detail(){
-		BoardDto dto = new BoardDto();
-		int no = dto.getSeq_free_list();
-		
-		ModelAndView mView = boardService.getDataDetail(no);
+	public ModelAndView detail(@RequestParam int seq_free_list){
+		ModelAndView mView = boardService.getDataDetail(seq_free_list);
+		mView.addObject("seq_free_list", seq_free_list);
 		mView.setViewName("detail");
 		return mView;
 	}
-	
+
 	@RequestMapping("insert_form")
-	public String insert_form(){
-		return "insert_form";
+	public ModelAndView insert_form(HttpSession session){
+		ModelAndView mView = new ModelAndView();
+		String seq_free_user = session.getAttribute("seq_free_user").toString();
+		mView.addObject("seq_free_user", seq_free_user);
+		mView.setViewName("insert_form");
+		return mView;
 	}
-	
+
 	@RequestMapping("insert_list")
 	public ModelAndView insert_list(@ModelAttribute BoardDto dto){
 		ModelAndView mView = new ModelAndView();
@@ -71,31 +74,30 @@ public class BoardController{
 		mView.setViewName("home");
 		return mView;
 	}
-	
-	
+
 	@RequestMapping("update_form")
 	public ModelAndView list_getData(@RequestParam int seq_free_list){
-		ModelAndView mView = boardService.getData(seq_free_list); 
+		ModelAndView mView = boardService.getData(seq_free_list);
 		mView.addObject("seq_free_list", seq_free_list);
 		mView.setViewName("update_form");
 		return mView;
 	}
-	
-	
+
 	@RequestMapping("list_update")
 	@ResponseBody
 	public int list_update(@ModelAttribute BoardDto dto){
 		boardService.updateList(dto);
 		return boardService.list_update(dto);
 	}
-	
-	
+
 	@RequestMapping("delete_form")
-	public String delete_list_form(){
-		return "delete_form";
+	public ModelAndView delete_list_form(@RequestParam int seq_free_list){
+		ModelAndView mView = new ModelAndView();
+		mView.addObject("seq_free_list", seq_free_list);
+		mView.setViewName("delete_form");
+		return mView;
 	}
-	
-	
+
 	@RequestMapping("delete_list")
 	@ResponseBody
 	public boolean delete_list(@RequestParam String f_id, String f_pw, int seq_free_list){
@@ -113,7 +115,5 @@ public class BoardController{
 		}
 		return true;
 	}
-	
-	
 
 }

@@ -40,7 +40,7 @@ CREATE SEQUENCE seq_free_list START WITH 1 INCREMENT BY 1 CACHE 20;
 -- 삭제 테이블 : free_delete
 ----------------------------------------------------------------
 create table free_delete(
-	seq_free_delete int PRIMARY KEY,
+--	seq_free_delete int PRIMARY KEY,
 	seq_free_list int,
 	seq_free_user int,
 	f_title varchar(30) not null,
@@ -49,13 +49,13 @@ create table free_delete(
 	f_delete varchar(20)
 );
 
-CREATE SEQUENCE seq_free_delete START WITH 1 INCREMENT BY 1 CACHE 20;
+-- CREATE SEQUENCE seq_free_delete START WITH 1 INCREMENT BY 1 CACHE 20;
 
 ----------------------------------------------------------------
 -- 수정 테이블 : free_update
 ----------------------------------------------------------------
 create table free_update(
-	seq_free_update INT PRIMARY KEY,
+--	seq_free_update INT PRIMARY KEY,
 	seq_free_list int,
 	seq_free_user int,
 	f_title varchar(30) not null,
@@ -63,7 +63,7 @@ create table free_update(
 	f_regdate date default sysdate,
 	f_update varchar(50)
 );
-CREATE SEQUENCE seq_free_update START WITH 1 INCREMENT BY 1 CACHE 20;
+--CREATE SEQUENCE seq_free_update START WITH 1 INCREMENT BY 1 CACHE 20;
 
 ----------------------------------------------------------------
 -- 뷰 테이블 : free_view

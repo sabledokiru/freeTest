@@ -107,8 +107,8 @@
 								</td>
 								<td><span title="">${tmp.f_id }</span></td>
 								<td>${tmp.f_regdate }</td>
-								<td><a href="update.do?seq_free_list=${tmp.seq_free_list }">수정</a></td>
-								<td><a href="delete.do?seq_free_list=${tmp.seq_free_list }">삭제</a></td>
+								<td><a href="update_form.do?seq_free_list=${tmp.seq_free_list }">수정</a></td>
+								<td><a href="delete_form.do?seq_free_list=${tmp.seq_free_list }">삭제</a></td>
 							</tr>
 							</c:forEach>
 						</c:otherwise>

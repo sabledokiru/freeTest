@@ -22,7 +22,7 @@
 <body>
 <div class="main_Box">
 	<form  action="insert_list.do"  id="insert_list" class="form-horizontal" method="post">
-		<input type="hidden" name="seq_free_user" value="2" />
+		<input type="hidden" name="seq_free_user" value="${seq_free_user }" />
 		<div class="form-group">
 			<label for="id" class="col-lg-2 control-label">제목</label>
 			<div class="col-lg-8">

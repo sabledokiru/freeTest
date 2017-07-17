@@ -21,11 +21,9 @@ public class BoardDaoImpl implements BoardDao{
 	}
 
 	@Override
-	public BoardDto getDataDetail(int no) {
-		System.out.println("boardDao start!");
-		int dto2 = boardSession.update("board.viewCount", no);
-		BoardDto dto = boardSession.selectOne("board.getDataDetail", no);
-		System.out.println("boardDao dto=????????" + dto);
+	public BoardDto getDataDetail(int seq_free_list) {
+		boardSession.update("board.viewCount", seq_free_list);
+		BoardDto dto = boardSession.selectOne("board.getDataDetail", seq_free_list);
 		return dto;
 	}
 

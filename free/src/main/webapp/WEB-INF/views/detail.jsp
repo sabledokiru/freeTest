@@ -21,8 +21,8 @@
 </head>
 <body>
 <div class="main_Box">
-	<form  action="insert_list.do"  id="insert_list" class="form-horizontal" method="post">
-		<input type="hidden" class="f_list_seq" value="${dto.f_list_seq }">
+	<form  action=""  id="insert_list" class="form-horizontal" method="post">
+		<input type="hidden" class="seq_free_list" value="${seq_free_list}">
 		<div class="form-group">
 			<label for="count" class="col-lg-2 control-label">조회수 : ${dto.f_view_count }</label></br>
 		</div>
@@ -41,8 +41,8 @@
 		<div class="form-group">
 			<div class="col-lg-offset-2 col-lg-10" align="center">
 				<input type="button"   class="btn btn-default" onclick="history.back();" value="확인" >
-				<input type="button"   class="btn btn-default" onclick="update_form.do" value="수정" >
-				<input type="button"   class="btn btn-default" onclick="delete_form.do;" value="삭제" >
+				<input type="button"   class="btn btn-default" onclick="javascsript:location.href='update_form.do?seq_free_list=${seq_free_list }'" value="수정" >
+				<input type="button"   class="btn btn-default" onclick="javascsript:location.href='delete_form.do?seq_free_list=${seq_free_list }'" value="삭제" >
 			</div>
 		</div>
 	</form>

@@ -52,7 +52,6 @@ $("#updateBtn").click(function(){
 		method : "post",
 		data : updateCheck,
 		success : function(data){
-			alert(data);
 			if(data==1){
 				location.href = "home.do";
 			}else{

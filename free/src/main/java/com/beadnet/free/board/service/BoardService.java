@@ -11,7 +11,7 @@ public interface BoardService{
 
 	public int insert_list(BoardDto dto);
 	
-	public ModelAndView getDataDetail(int no);
+	public ModelAndView getDataDetail(int seq_free_list);
 	public void delete_list(int seq_free_list);
 	public boolean existingId(String f_id);
 	public String getPwd(String f_id);

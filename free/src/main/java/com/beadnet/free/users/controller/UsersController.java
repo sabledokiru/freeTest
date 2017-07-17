@@ -1,5 +1,7 @@
 package com.beadnet.free.users.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,8 +31,10 @@ public class UsersController{
 	}
 
 	@RequestMapping("user_insert")
-	public String userInsert(@ModelAttribute UsersDto usersDto){
+	public String userInsert(@ModelAttribute UsersDto usersDto, HttpSession session){
 		usersService.uesrInsert(usersDto);
-		return "home";
+		int seq_free_user = usersService.getSeq(usersDto);
+		session.setAttribute("seq_free_user", seq_free_user);
+		return "insert_form";
 	}
 }
