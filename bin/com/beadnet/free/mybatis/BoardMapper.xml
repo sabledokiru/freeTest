@@ -8,4 +8,18 @@
 		)
 	</insert>
 	
+	<select id="getData" parameterType="int" resultType="boardDto">
+		SELECT  * FROM 
+		FREE_LIST A ,  free_view B 
+		WHERE A.f_list_seq = B.f_list_seq
+	</select>
+	
+	<update id="viewCount" parameterType="int">
+	update free_view 
+	 set  
+	 f_view_count = nvl(f_view_count,0)+1
+	 where 
+	 f_list_seq = 1
+	</update>
+	
 </mapper>
