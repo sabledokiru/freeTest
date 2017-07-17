@@ -19,10 +19,9 @@ public class BoardController{
 	private BoardService boardService;
 
 	@RequestMapping("list")
-	public ModelAndView list(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "") String searchOption, @RequestParam(defaultValue = "") String keyword){
+	public ModelAndView list(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "") String keyword){
 		// 검색조건, 키워드 맵에 담기
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("searchOption", searchOption);
 		map.put("keyword", keyword);
 
 		// 페이징처리
@@ -36,7 +35,6 @@ public class BoardController{
 		map.put("endRowNum", endRowNum);
 
 		// 페이징처리 맵에 검색조건, 키워드도 담기
-		page.put("searchOption", searchOption);
 		page.put("keyword", keyword);
 
 		// 리스트 가져오기
